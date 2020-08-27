@@ -1,0 +1,40 @@
+@import "../variables.scss";
+
+.project-wrapper {
+  width: 70%;
+  margin: 20px auto;
+  height: 100%;
+  display: flex;
+  background-color: aliceblue;
+  justify-content: center;
+  align-items: center;
+  background-color: $black;
+  border-radius: 10px;
+  .details-inner {
+    padding: 70px;
+
+    .project-header {
+      padding: 20px 0;
+      border-bottom: 2px solid #e95136;
+      h2 {
+        color: white;
+        text-transform: uppercase;
+      }
+    }
+    .project-body {
+      padding: 20px 0;
+      p {
+        color: white;
+      }
+    }
+    .project-info {
+      padding: 20px 0;
+
+      p {
+        font-size: 15px;
+        color: rgb(196, 196, 196);
+        font-weight: 400;
+      }
+    }
+  }
+}

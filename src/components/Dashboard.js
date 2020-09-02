@@ -1,33 +1,19 @@
 import React from "react";
-import ProjectSummary from "../components/ProjectSummary";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-const Dashboard = ({ projects }) => {
-  console.log(projects);
-
+const Dashboard = ({ auth }) => {
   return (
-    <div className='container'>
-      <div className='dashboard-wrapper'>
-        <ul>
-          {projects.map((project) => {
-            return (
-              <li key={project.id}>
-                <Link to={"/project/" + project.id}>
-                  <ProjectSummary project={project} />
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+    <div className="container">
+      <h1>Welcome back, {auth.firstName}</h1>
     </div>
   );
 };
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
+  console.log(state);
   return {
-    projects: state.projects,
+    auth: state.firebase.profile,
   };
-}
+};
+
 export default connect(mapStateToProps)(Dashboard);

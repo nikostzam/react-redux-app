@@ -1,38 +1,33 @@
 import React from "react";
 import "./styles/App.scss";
 import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
-import { connect } from "react-redux";
 
 import Navbar from "./components/Navbar";
 import Dashboard from "./components/Dashboard";
-import ProjectDetails from "./components/ProjectDetails";
-import CreateProject from "./components/CreateProject";
+import SignUp from "./components/SignUp";
+import SignIn from "./components/SignIn";
+import SignOut from "./components/SignOut";
 
-const App = ({ projects }) => {
+const App = () => {
   return (
     <Router>
       <Navbar />
       <Switch>
-        <Route path='/' exact>
-          <Dashboard projects={projects} />
+        <Route path="/" exact>
+          <Dashboard />
         </Route>
-        <Route path='/create' exact component={CreateProject} />
-        {projects.map((project) => {
-          return (
-            <Route to={"/project/:id"} key={project.id}>
-              <ProjectDetails project={project} />
-            </Route>
-          );
-        })}
+        <Route path="/signUp">
+          <SignUp />
+        </Route>
+        <Route path="/signIn">
+          <SignIn />
+        </Route>
+        <Route path="/signOut">
+          <SignOut />
+        </Route>
       </Switch>
     </Router>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    projects: state.projects,
-  };
-};
-
-export default connect(mapStateToProps)(App);
+export default App;
